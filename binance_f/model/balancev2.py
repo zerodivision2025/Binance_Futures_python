@@ -14,10 +14,10 @@ class BalanceV2:
         result = BalanceV2()
         result.accountAlias = json_data.get_string("accountAlias")
         result.asset = json_data.get_string("asset")
-        result.balance = json_data.get_float("balance")
-        result.crossWalletBalance = json_data.get_float("crossWalletBalance")
-        result.crossUnPnl = json_data.get_float("crossUnPnl")
-        result.availableBalance = json_data.get_float("availableBalance")
-        result.maxWithdrawAmount = json_data.get_float("maxWithdrawAmount")
+        result.balance = json_data.get_string("balance")
+        result.crossWalletBalance = json_data.get_string("crossWalletBalance")
+        result.crossUnPnl = json_data.get_string("crossUnPnl")
+        result.availableBalance = json_data.get_string("availableBalance")
+        result.maxWithdrawAmount = json_data.get_string("maxWithdrawAmount")
 
         return result
