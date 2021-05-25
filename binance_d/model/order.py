@@ -14,6 +14,7 @@ class Order:
         self.symbol = ""
         self.timeInForce = None
         self.type = None
+        self.time = 0
         self.updateTime = 0
         self.workingType = ""
         self.avgPrice = 0.0
@@ -39,6 +40,7 @@ class Order:
         result.symbol = json_data.get_string("symbol")
         result.timeInForce = json_data.get_string("timeInForce")
         result.type = json_data.get_string("type")
+        result.time = json_data.get_int("time")
         result.updateTime = json_data.get_int("updateTime")
         result.workingType = json_data.get_string("workingType")
         result.avgPrice = json_data.get_string("avgPrice")
