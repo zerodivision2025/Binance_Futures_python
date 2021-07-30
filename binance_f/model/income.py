@@ -6,6 +6,7 @@ class Income:
         self.income = 0.0
         self.asset = ""
         self.time = 0
+        self.info = ''
     
     @staticmethod
     def json_parse(json_data):
@@ -15,5 +16,6 @@ class Income:
         result.income = json_data.get_float("income")
         result.asset = json_data.get_string("asset")
         result.time = json_data.get_int("time")
+        result.info = json_data.get_string_or_default('info', '')
 
         return result
