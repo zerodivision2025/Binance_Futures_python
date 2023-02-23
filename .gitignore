@@ -16,3 +16,4 @@ binance_futures.egg-info/*
 # Python venv
 .venv
 .binance_futures
+.idea
