@@ -287,6 +287,11 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
 
+    def amend_order(self, orderId, origClientOrderId, symbol, side, quantity, price):
+        response = call_sync(self.request_impl.amend_order(orderId, origClientOrderId, symbol, side, quantity, price))
+        self.refresh_limits(response[1])
+        return response[0]
+
     def get_order(self, symbol: 'str', orderId: 'long' = None, origClientOrderId: 'str' = None) -> any:
         """
         Query Order (USER_DATA)

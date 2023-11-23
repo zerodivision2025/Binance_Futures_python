@@ -426,6 +426,28 @@ class RestApiRequestImpl(object):
         request.json_parser = parse
         return request
 
+    def amend_order(self, orderId, origClientOrderId, symbol, side, quantity, price):
+        check_should_not_none(symbol, "symbol")
+        check_should_not_none(side, "side")
+        check_should_not_none(quantity, "quantity")
+        check_should_not_none(price, "price")
+        builder = UrlParamsBuilder()
+        builder.put_url("orderId", orderId)
+        builder.put_url("origClientOrderId", origClientOrderId)
+        builder.put_url("symbol", symbol)
+        builder.put_url("side", side)
+        builder.put_url("quantity", quantity)
+        builder.put_url("price", price)
+
+        request = self.__create_request_by_put_with_signature("/fapi/v1/order", builder)
+
+        def parse(json_wrapper):
+            result = Order.json_parse(json_wrapper)
+            return result
+
+        request.json_parser = parse
+        return request
+
     def get_order(self, symbol, orderId, origClientOrderId):
         check_should_not_none(symbol, "symbol")
         builder = UrlParamsBuilder()
