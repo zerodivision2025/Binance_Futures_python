@@ -451,13 +451,13 @@ class RequestClient(object):
         return response[0]
 
     def get_income_history(self, symbol: 'str' = None, incomeType: 'IncomeType' = IncomeType.INVALID, 
-                        startTime: 'long' = None, endTime: 'long' = None, limit: 'int' = None) -> any:
+                           startTime: int = None, endTime: int = None, page: int = None, limit: int = None) -> any:
         """
         Get Income History(USER_DATA)
 
         GET /dapi/v1/income (HMAC SHA256)
         """
-        response = call_sync(self.request_impl.get_income_history(symbol, incomeType, startTime, endTime, limit))
+        response = call_sync(self.request_impl.get_income_history(symbol, incomeType, startTime, endTime, page, limit))
         self.refresh_limits(response[1])
         return response[0]
 

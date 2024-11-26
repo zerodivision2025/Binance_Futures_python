@@ -756,12 +756,13 @@ class RestApiRequestImpl(object):
         request.json_parser = parse
         return request
 
-    def get_income_history(self, symbol, incomeType, startTime, endTime, limit):
+    def get_income_history(self, symbol, incomeType, startTime, endTime, page, limit):
         builder = UrlParamsBuilder()
         builder.put_url("symbol", symbol)
         builder.put_url("incomeType", incomeType)
         builder.put_url("startTime", startTime)
         builder.put_url("endTime", endTime)
+        builder.put_url("page", page)
         builder.put_url("limit", limit)
 
         request = self.__create_request_by_get_with_signature("/dapi/v1/income", builder)
