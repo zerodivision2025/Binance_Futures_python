@@ -18,6 +18,7 @@ class MyTrade:
 
     @staticmethod
     def json_parse(json_data):
+        return json_data.json_object
         result = MyTrade()
         result.isBuyer = json_data.get_boolean("buyer")
         result.commission = json_data.get_float("commission")
