@@ -559,6 +559,16 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
 
+    def get_balance_v3(self) -> any:
+        """
+        Future Account Balance (USER_DATA)
+
+        Get /fapi/v3/balance (HMAC SHA256)
+        """
+        response = call_sync(self.request_impl.get_balance_v3())
+        self.refresh_limits(response[1])
+        return response[0]
+
     def get_account_information_v2(self) -> any:
         """
         Account Information (USER_DATA)
