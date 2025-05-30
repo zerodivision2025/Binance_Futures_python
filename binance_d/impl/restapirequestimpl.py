@@ -459,7 +459,8 @@ class RestApiRequestImpl(object):
 
 
     def post_order(self, symbol, side, ordertype, 
-                timeInForce, quantity, reduceOnly, price, newClientOrderId, stopPrice, workingType, closePosition, positionSide, callbackRate, activationPrice, newOrderRespType):
+                timeInForce, quantity, reduceOnly, price, newClientOrderId, stopPrice, workingType, closePosition, positionSide, callbackRate,
+                activationPrice, newOrderRespType, priceMatch):
         check_should_not_none(symbol, "symbol")
         check_should_not_none(side, "side")
         check_should_not_none(ordertype, "ordertype")
@@ -479,6 +480,7 @@ class RestApiRequestImpl(object):
         builder.put_url("callbackRate", callbackRate)
         builder.put_url("activationPrice", activationPrice)
         builder.put_url("newOrderRespType", newOrderRespType)
+        builder.put_url("priceMatch", priceMatch)
 
 
         request = self.__create_request_by_post_with_signature("/dapi/v1/order", builder)

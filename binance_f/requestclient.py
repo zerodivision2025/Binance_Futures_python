@@ -235,7 +235,7 @@ class RequestClient(object):
                 newClientOrderId: 'str' = None, stopPrice: 'float' = None, 
                 workingType: 'WorkingType' = WorkingType.INVALID, closePosition: 'boolean' = None,
                 positionSide: 'PositionSide' = PositionSide.INVALID, callbackRate: 'float' = None,
-                activationPrice: 'float' = None, newOrderRespType: 'OrderRespType' = OrderRespType.INVALID) -> any:
+                activationPrice: 'float' = None, newOrderRespType: 'OrderRespType' = OrderRespType.INVALID, priceMatch: str = None) -> any:
         """
         New Order (TRADE)
 
@@ -244,7 +244,8 @@ class RequestClient(object):
         Send in a new order.
         """
         response = call_sync(self.request_impl.post_order(symbol, side, ordertype, 
-                timeInForce, quantity, reduceOnly, price, newClientOrderId, stopPrice, workingType, closePosition, positionSide, callbackRate, activationPrice, newOrderRespType))
+                timeInForce, quantity, reduceOnly, price, newClientOrderId, stopPrice, workingType, closePosition, positionSide, callbackRate,
+                activationPrice, newOrderRespType, priceMatch))
         self.refresh_limits(response[1])
         return response[0]
 
