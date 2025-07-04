@@ -582,6 +582,18 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
 
+    def get_account_information_v3(self) -> any:
+        """
+        Account Information (USER_DATA)
+
+        GET /fapi/v3/account (HMAC SHA256)
+
+        Get current account information.
+        """
+        response = call_sync(self.request_impl.get_account_information_v3())
+        self.refresh_limits(response[1])
+        return response[0]
+
     def get_position_v2(self) -> any:
         """
         Position Information (USER_DATA)

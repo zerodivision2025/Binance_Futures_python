@@ -960,6 +960,19 @@ class RestApiRequestImpl(object):
         request.json_parser = parse
         return request
 
+    def get_account_information_v3(self):
+        builder = UrlParamsBuilder()
+
+        request = self.__create_request_by_get_with_signature("/fapi/v3/account", builder)
+
+        def parse(json_wrapper):
+            # result = AccountInformationV2.json_parse(json_wrapper)
+            # return result
+            return json_wrapper.json_object
+
+        request.json_parser = parse
+        return request
+
     def get_position_v2(self):
         builder = UrlParamsBuilder()
 
