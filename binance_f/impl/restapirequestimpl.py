@@ -537,7 +537,6 @@ class RestApiRequestImpl(object):
         return request
 
     def get_all_orders(self, symbol, orderId, startTime, endTime, limit):
-        check_should_not_none(symbol, "symbol")
         builder = UrlParamsBuilder()
         builder.put_url("symbol", symbol)
         builder.put_url("orderId", orderId)
@@ -676,7 +675,6 @@ class RestApiRequestImpl(object):
         return request
 
     def get_account_trades(self, symbol, startTime, endTime, fromId, limit):
-        check_should_not_none(symbol, "symbol")
         builder = UrlParamsBuilder()
         builder.put_url("symbol", symbol)
         builder.put_url("startTime", startTime)
