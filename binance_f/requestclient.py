@@ -57,7 +57,7 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
 
-    def get_order_book(self, symbol: 'str', limit: 'int' = None) -> any:
+    def get_order_book(self, symbol: str, limit: int = None) -> any:
         """
         Order Book (MARKET_DATA)
 
@@ -69,7 +69,7 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
            
-    def get_recent_trades_list(self, symbol: 'str', limit: 'int' = None) -> any:
+    def get_recent_trades_list(self, symbol: str, limit: int = None) -> any:
         """
         Recent Trades List (MARKET_DATA)
 
@@ -81,7 +81,7 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
            
-    def get_old_trade_lookup(self, symbol: 'str', limit: 'int' = None, fromId: 'long' = None) -> any:
+    def get_old_trade_lookup(self, symbol: str, limit: int = None, fromId: int = None) -> any:
         """
         Old Trades Lookup (MARKET_DATA)
 
@@ -93,8 +93,8 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
             
-    def get_aggregate_trades_list(self, symbol: 'str', fromId: 'long' = None, 
-                            startTime: 'long' = None, endTime: 'long' = None, limit: 'int' = None) -> any:
+    def get_aggregate_trades_list(self, symbol: str, fromId: int = None, 
+                            startTime: int = None, endTime: int = None, limit: int = None) -> any:
         """
         Compressed/Aggregate Trades List (MARKET_DATA)
 
@@ -107,8 +107,8 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
               
-    def get_candlestick_data(self, symbol: 'str', interval: 'CandlestickInterval', 
-                            startTime: 'long' = None, endTime: 'long' = None, limit: 'int' = None) -> any:
+    def get_candlestick_data(self, symbol: str, interval: CandlestickInterval, 
+                            startTime: int = None, endTime: int = None, limit: int = None) -> any:
         """
         Kline/Candlestick Data (MARKET_DATA)
 
@@ -120,7 +120,7 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
             
-    def get_mark_price(self, symbol: 'str') -> any:
+    def get_mark_price(self, symbol: str) -> any:
         """
         Mark Price (MARKET_DATA)
 
@@ -132,7 +132,7 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
             
-    def get_funding_rate(self, symbol: 'str', startTime: 'long' = None, endTime: 'str' = None, limit: 'int' = None) -> any:
+    def get_funding_rate(self, symbol: str, startTime: int = None, endTime: str = None, limit: int = None) -> any:
         """
         Get Funding Rate History (MARKET_DATA)
 
@@ -142,7 +142,7 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
        
-    def get_ticker_price_change_statistics(self, symbol: 'str' = None) -> any:
+    def get_ticker_price_change_statistics(self, symbol: str = None) -> any:
         """
         24hr Ticker Price Change Statistics (MARKET_DATA)
 
@@ -155,7 +155,7 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
                
-    def get_symbol_price_ticker(self, symbol: 'str' = None) -> any:
+    def get_symbol_price_ticker(self, symbol: str = None) -> any:
         """
         Symbol Price Ticker (MARKET_DATA)
 
@@ -167,7 +167,7 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
 
-    def get_symbol_orderbook_ticker(self, symbol: 'str' = None) -> any:
+    def get_symbol_orderbook_ticker(self, symbol: str = None) -> any:
         """
         Symbol Order Book Ticker (MARKET_DATA)
 
@@ -179,8 +179,8 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
 
-    def get_liquidation_orders(self, symbol: 'str' = None, startTime: 'long' = None, endTime: 'str' = None, 
-                                limit: 'int' = None) -> any:
+    def get_liquidation_orders(self, symbol: str = None, startTime: int = None, endTime: str = None, 
+                                limit: int = None) -> any:
         """
         Get all Liquidation Orders (MARKET_DATA)
 
@@ -190,7 +190,7 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
    
-    def get_open_interest(self, symbol: 'str') -> any:
+    def get_open_interest(self, symbol: str) -> any:
         """
         Symbol Open Interest (MARKET_DATA)
 
@@ -203,7 +203,7 @@ class RequestClient(object):
         return response[0]
 
 
-    def change_position_mode(self, dualSidePosition: 'boolean' = None) -> any:
+    def change_position_mode(self, dualSidePosition: bool = None) -> any:
         """
         Change Current Position Mode (TRADE)
 
@@ -229,13 +229,13 @@ class RequestClient(object):
         return response[0]
 
 
-    def post_order(self, symbol: 'str', side: 'OrderSide', ordertype: 'OrderType', 
-                timeInForce: 'TimeInForce' = TimeInForce.INVALID, quantity: 'float' = None,
-                reduceOnly: 'boolean' = None, price: 'float' = None,
-                newClientOrderId: 'str' = None, stopPrice: 'float' = None, 
-                workingType: 'WorkingType' = WorkingType.INVALID, closePosition: 'boolean' = None,
-                positionSide: 'PositionSide' = PositionSide.INVALID, callbackRate: 'float' = None,
-                activationPrice: 'float' = None, newOrderRespType: 'OrderRespType' = OrderRespType.INVALID, priceMatch: str = None) -> any:
+    def post_order(self, symbol: str, side: OrderSide, ordertype: OrderType, 
+                timeInForce: TimeInForce = TimeInForce.INVALID, quantity: float = None,
+                reduceOnly: bool = None, price: float = None,
+                newClientOrderId: str = None, stopPrice: float = None, 
+                workingType: WorkingType = WorkingType.INVALID, closePosition: bool = None,
+                positionSide: PositionSide = PositionSide.INVALID, callbackRate: float = None,
+                activationPrice: float = None, newOrderRespType: OrderRespType = OrderRespType.INVALID, priceMatch: str = None) -> any:
         """
         New Order (TRADE)
 
@@ -254,7 +254,7 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
 
-    def get_order(self, symbol: 'str', orderId: 'long' = None, origClientOrderId: 'str' = None) -> any:
+    def get_order(self, symbol: str, orderId: int = None, origClientOrderId: str = None) -> any:
         """
         Query Order (USER_DATA)
 
@@ -266,7 +266,7 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
     
-    def cancel_order(self, symbol: 'str', orderId: 'long' = None, origClientOrderId: 'str' = None) -> any:
+    def cancel_order(self, symbol: str, orderId: int = None, origClientOrderId: str = None) -> any:
         """
         Cancel Order (TRADE)
 
@@ -279,7 +279,7 @@ class RequestClient(object):
         return response[0]
 
 
-    def cancel_all_orders(self, symbol: 'str') -> any:
+    def cancel_all_orders(self, symbol: str) -> any:
         """
         Cancel All Open Orders (TRADE)
 
@@ -290,7 +290,7 @@ class RequestClient(object):
         return response[0]
 
 
-    def cancel_list_orders(self, symbol: 'str', orderIdList: 'list' = None, origClientOrderIdList: 'list' = None) -> any:
+    def cancel_list_orders(self, symbol: str, orderIdList: list = None, origClientOrderIdList: list = None) -> any:
         """
         Cancel Multiple Orders (TRADE)
 
@@ -300,7 +300,7 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
 
-    def get_open_orders(self, symbol: 'str' = None) -> any:
+    def get_open_orders(self, symbol: str = None) -> any:
         """
         Current Open Orders (USER_DATA)
 
@@ -312,8 +312,8 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
 
-    def get_all_orders(self, symbol: 'str', orderId: 'long' = None, startTime: 'long' = None, 
-                        endTime: 'long' = None, limit: 'int' = None) -> any:
+    def get_all_orders(self, symbol: str = None, orderId: int = None, startTime: int = None, 
+                        endTime: int = None, limit: int = None) -> any:
         """
         All Orders (USER_DATA)
 
@@ -347,7 +347,7 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
 
-    def change_initial_leverage(self, symbol: 'str', leverage: 'int') -> any:
+    def change_initial_leverage(self, symbol: str, leverage: int) -> any:
         """
         Change Initial Leverage (TRADE)
 
@@ -359,7 +359,7 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
 
-    def change_margin_type(self, symbol: 'str', marginType: 'FuturesMarginType') -> any:
+    def change_margin_type(self, symbol: str, marginType: FuturesMarginType) -> any:
         """
         Change Margin Type (TRADE)
 
@@ -369,7 +369,7 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
 
-    def change_position_margin(self, symbol: 'str', amount: 'float', type: 'int') -> any:
+    def change_position_margin(self, symbol: str, amount: float, type: int) -> any:
         """
         Modify Isolated Position Margin (TRADE)
 
@@ -379,7 +379,7 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
 
-    def get_position_margin_change_history(self, symbol: 'str', type: 'int' = None, startTime: 'int' = None, endTime: 'int' = None, limit :'int' = None) -> any:
+    def get_position_margin_change_history(self, symbol: str, type: int = None, startTime: int = None, endTime: int = None, limit :int = None) -> any:
         """
         Get Position Margin Change History (TRADE)
 
@@ -399,8 +399,8 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
 
-    def get_account_trades(self, symbol: 'str', startTime: 'long' = None, endTime: 'long' = None, 
-                        fromId: 'long' = None, limit: 'int' = None) -> any:
+    def get_account_trades(self, symbol: str = None, startTime: int = None, endTime: int = None, 
+                        fromId: int = None, limit: int = None) -> any:
         """
         Account Trade List (USER_DATA)
 
@@ -462,7 +462,7 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
 
-    def get_open_interest_stats(self, symbol: 'str', period: 'str', startTime: 'str' = None, endTime: 'str' = None, limit: 'int' = 30) -> any:
+    def get_open_interest_stats(self, symbol: str, period: str, startTime: str = None, endTime: str = None, limit: int = 30) -> any:
         """
         Open Interest Statistics (MARKET_DATA)
 
@@ -473,7 +473,7 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
 
-    def get_top_long_short_accounts(self, symbol: 'str', period: 'str', startTime: 'str' = None, endTime: 'str' = None, limit: 'int' = 30) -> any:
+    def get_top_long_short_accounts(self, symbol: str, period: str, startTime: str = None, endTime: str = None, limit: int = 30) -> any:
         """
         Top Trader Long/Short Ratio (Accounts) (MARKET_DATA)
 
@@ -484,7 +484,7 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
 
-    def get_top_long_short_positions(self, symbol: 'str', period: 'str', startTime: 'str' = None, endTime: 'str' = None, limit: 'int' = 30) -> any:
+    def get_top_long_short_positions(self, symbol: str, period: str, startTime: str = None, endTime: str = None, limit: int = 30) -> any:
         """
         Top Trader Long/Short Ratio (Positions)
 
@@ -495,7 +495,7 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
 
-    def get_global_long_short_accounts(self, symbol: 'str', period: 'str', startTime: 'str' = None, endTime: 'str' = None, limit: 'int' = 30) -> any:
+    def get_global_long_short_accounts(self, symbol: str, period: str, startTime: str = None, endTime: str = None, limit: int = 30) -> any:
         """
         Long/Short Ratio (MARKET_DATA)
 
@@ -506,7 +506,7 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
 
-    def get_taker_buy_sell_ratio(self, symbol: 'str', period: 'str', startTime: 'str' = None, endTime: 'str' = None, limit: 'int' = 30) -> any:
+    def get_taker_buy_sell_ratio(self, symbol: str, period: str, startTime: str = None, endTime: str = None, limit: int = 30) -> any:
         """
         Taker Buy/Sell Volume(MARKET_DATA)
 
@@ -517,8 +517,8 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
 
-    def get_blvt_nav_candlestick_data(self, symbol: 'str', interval: 'CandlestickInterval', 
-                            startTime: 'long' = None, endTime: 'long' = None, limit: 'int' = None) -> any:
+    def get_blvt_nav_candlestick_data(self, symbol: str, interval: CandlestickInterval, 
+                            startTime: int = None, endTime: int = None, limit: int = None) -> any:
         """
         Historical BLVT NAV Kline/Candlestick (MARKET_DATA)
 
@@ -530,7 +530,7 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
 
-    def get_composite_index_info(self, symbol: 'str') -> any:
+    def get_composite_index_info(self, symbol: str) -> any:
         """
         Composite Index Symbol Information (MARKET_DATA)
 
@@ -540,7 +540,7 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
 
-    def auto_cancel_all_orders(self, symbol: 'str', countdownTime: 'long') -> any:
+    def auto_cancel_all_orders(self, symbol: str, countdownTime: int) -> any:
         """
         Auto-Cancel All Open Orders (TRADE)
 
@@ -604,7 +604,7 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
 
-    def get_leverage_bracket(self, symbol: 'str' = None) -> any:
+    def get_leverage_bracket(self, symbol: str = None) -> any:
         """
         Notional and Leverage Brackets (USER_DATA)
 
@@ -614,7 +614,7 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
 
-    def get_adl_quantile(self, symbol: 'str' = None) -> any:
+    def get_adl_quantile(self, symbol: str = None) -> any:
         """
         Position ADL Quantile Estimation (USER_DATA)
 
@@ -624,7 +624,7 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
 
-    def get_api_trading_stats(self, symbol: 'str' = None) -> any:
+    def get_api_trading_stats(self, symbol: str = None) -> any:
         """
         User API Trading Quantitative Rules Indicators (USER_DATA)
 
