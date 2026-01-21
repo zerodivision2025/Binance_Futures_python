@@ -594,6 +594,16 @@ class RequestClient(object):
         self.refresh_limits(response[1])
         return response[0]
 
+    def get_fee_burn(self) -> any:
+        response = call_sync(self.request_impl.get_fee_burn())
+        self.refresh_limits(response[1])
+        return response[0]
+
+    def set_fee_burn(self, fee_burn) -> any:
+        response = call_sync(self.request_impl.set_fee_burn(fee_burn))
+        self.refresh_limits(response[1])
+        return response[0]
+
     def get_position_v2(self) -> any:
         """
         Position Information (USER_DATA)

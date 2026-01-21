@@ -3,8 +3,8 @@ certifi==2020.4.5.2
 chardet==3.0.4
 idna==2.9
 pytz==2020.1
-requests==2.23.0
-six==1.15.0
+requests==2.28.2
+six==1.16.0
 tzlocal==2.1
-urllib3==1.25.9
+urllib3==1.26.15
 websocket-client==0.57.0

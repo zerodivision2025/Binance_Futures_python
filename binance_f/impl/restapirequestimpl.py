@@ -7,6 +7,7 @@ from binance_f.impl.utils.timeservice import *
 from binance_f.model import *
 # For develop
 from binance_f.base.printobject import *
+from binance_f.model.fee_burn import FeeBurn
 
 
 class RestApiRequestImpl(object):
@@ -1030,6 +1031,31 @@ class RestApiRequestImpl(object):
 
         def parse(json_wrapper):
             result = ApiTradingStatus.json_parse(json_wrapper)
+            return result
+
+        request.json_parser = parse
+        return request
+
+    def get_fee_burn(self):
+        builder = UrlParamsBuilder()
+
+        request = self.__create_request_by_get_with_signature("/fapi/v1/feeBurn", builder)
+
+        def parse(json_wrapper):
+            result = FeeBurn.json_parse(json_wrapper)
+            return result
+
+        request.json_parser = parse
+        return request
+
+    def set_fee_burn(self, fee_burn):
+        builder = UrlParamsBuilder()
+        builder.put_url("feeBurn", fee_burn)
+
+        request = self.__create_request_by_post_with_signature("/fapi/v1/feeBurn", builder)
+
+        def parse(json_wrapper):
+            result = CodeMsg.json_parse(json_wrapper)
             return result
 
         request.json_parser = parse
